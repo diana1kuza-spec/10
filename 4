@@ -1,0 +1,30 @@
+# Программа считает сумму покупок со скидкой.
+
+summa_pokupok = 0
+
+while True:
+    try:
+        cena = int(input("Введите цену товара (0 для завершения): "))
+    except ValueError:
+        print("Ошибка: введите целое число")
+        continue
+
+    # Условие выхода
+    if cena == 0:
+        break
+
+    # Проверка на отрицательную цену
+    if cena < 0:
+        print("Ошибка цены")
+        continue # Пропускаем добавление в сумму
+
+    # Добавляем корректную цену
+    summa_pokupok += cena
+
+# После выхода из цикла применяем скидку
+if summa_pokupok > 1000:
+    itogovaya_summa = summa_pokupok * 0.9  # Скидка 10%
+else:
+    itogovaya_summa = summa_pokupok
+
+print(f"Итоговая сумма к оплате: {itogovaya_summa}")
